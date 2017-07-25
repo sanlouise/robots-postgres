@@ -35,18 +35,20 @@ app.get('/', (request, response) => {
   response.render('index', data)
 })
 
-app.get('/info/:friendName', (request, response) => {
-  const data = {
-    name: request.params.username,
-    avatar: request.params.avatar,
-    email: request.params.email,
-    university: request.params.university,
-    job: request.params.job,
-    company: request.params.company,
-    skills: request.params.skills,
-    phone: request.params.phone,
+app.get('/info/:username', (request, response) => {
+  const username = request.params.username;
+  let user;
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].username === username) {
+      user = users[i];
+      break;
+    }
   }
-  response.render('info', data)
+
+  if (!user) {
+    return response.status(404).send({ message: `Unable to find user ${username}.` });
+  }
+  return response.render('info', user);
 })
 
 app.listen(3000, () => {
