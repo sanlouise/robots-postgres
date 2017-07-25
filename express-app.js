@@ -18,7 +18,7 @@ app.get('/users', (request, response) => {
     <!DOCTYPE html>
     <html>
       <head>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="public/styles.css">
       </head>
       <body>
         <p>These are all users</p>
@@ -33,6 +33,20 @@ app.get('/users', (request, response) => {
 app.get('/', (request, response) => {
   const data = users;
   response.render('index', data)
+})
+
+app.get('/info/:friendName', (request, response) => {
+  const data = {
+    name: request.params.username,
+    avatar: request.params.avatar,
+    email: request.params.email,
+    university: request.params.university,
+    job: request.params.job,
+    company: request.params.company,
+    skills: request.params.skills,
+    phone: request.params.phone,
+  }
+  response.render('info', data)
 })
 
 app.listen(3000, () => {

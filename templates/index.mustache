@@ -5,10 +5,16 @@
     <title></title>
   </head>
   <body>
-    <ul>
-      {{#users}}
-        <li>{{username}}</li>
-      {{/users}}
-    </ul>
+
+    {{#users}}
+    <a href="/info/{{username}}">{{username}}
+      <div class="user">
+        <img src="{{avatar}}" />
+        <h3>{{username}}</h3>
+        <p>{{job}}</p>
+      </div>
+    </a>
+    {{/users}}
+
   </body>
 </html>
