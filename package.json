@@ -1,24 +1,7 @@
 {
-  "name": "express-database",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "dependencies": {
     "express": "^4.15.3",
     "mustache-express": "^1.2.5"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sanlouise/express-database.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sanlouise/express-database/issues"
-  },
-  "homepage": "https://github.com/sanlouise/express-database#readme"
+  }
 }
