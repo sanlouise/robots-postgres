@@ -8,31 +8,12 @@ app.engine('mustache', mustacheExpress())
 app.set('views', './templates')
 app.set('view engine', 'mustache')
 
-app.get('/users.json', (request, response) => {
-  const data = users;
-  response.json(data);
-})
-
-app.get('/users', (request, response) => {
-  response.send(`
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <link rel="stylesheet" href="public/styles.css">
-      </head>
-      <body>
-        <p>These are all users</p>
-        <p>
-           <a href="/">Home</a>
-         </p>
-      </body>
-    </html>
-  `)
+app.listen(3000, () => {
+  console.log('Listening on port 3000')
 })
 
 app.get('/', (request, response) => {
-  const data = users;
-  response.render('index', data)
+  response.render('index', { users });
 })
 
 app.get('/info/:username', (request, response) => {
@@ -49,8 +30,4 @@ app.get('/info/:username', (request, response) => {
     return response.status(404).send({ message: `Unable to find user ${username}.` });
   }
   return response.render('info', user);
-})
-
-app.listen(3000, () => {
-  console.log('Listening on port 3000')
 })

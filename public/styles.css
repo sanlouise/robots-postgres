@@ -3,10 +3,72 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
 }
 
 .user {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  height:290px;
+  width: 290px;
+  border: 1px grey solid;
+  margin: 30px;
+  padding-left: 10px;
+}
+
+.user h3 {
+  color: blue;
+  font-size: 25px;
+}
+
+.user p {
+  color: darkgrey;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  width: 50em;
+}
+
+.upper {
+  display: flex;
+  flex-direction: row;
+}
+
+.upper-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 100px;
+}
+
+.upper-info h1 {
+  font-size: 60px;
+  font-weight: 300;
+}
+
+.upper-info-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.userinfo img {
+  border-radius: 50%;
+  height: 175px;
+  width: 175px;
+  border: 1px solid grey;
+  margin: 25px;
+}
+
+.bold {
+  font-weight: bold;
+  text-align: right;
+  margin-right: 80px;
 }

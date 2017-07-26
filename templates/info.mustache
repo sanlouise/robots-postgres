@@ -2,12 +2,46 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <title>Robot Page</title>
   </head>
   <body>
-    <img src="{{avatar}}" />
-    <h3>{{username}}</h3>
-    <p>{{job}}</p>
-    <p>{{university}}</p>
+    <div class="userinfo">
+
+      <div class="upper">
+
+        <img src="{{avatar}}" />
+        <div class="upper-info">
+          <h1>{{username}}</h1>
+          <div class="upper-info-row">
+            <p>{{city}}</p> |
+            <p>{{country}}</p> |
+            <p>{{job}}</p> |
+            <p>{{email}}</p> |
+            <p>{{phone}}</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bottom">
+        <table>
+          <tr>
+            <td class="bold">Education</td>
+            <td>{{university}}</td>
+          </tr>
+          <tr>
+            <td class="bold">Skills</td>
+            <td>
+              {{#skills}}
+                {{.}}</br>
+              {{/skills}}
+            </td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
   </body>
 </html>
