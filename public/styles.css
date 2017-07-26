@@ -22,8 +22,9 @@ a {
 }
 
 .user h3 {
-  color: blue;
+  color: #3576CD;
   font-size: 25px;
+  margin-bottom: 0;
 }
 
 .userinfo {
@@ -60,7 +61,7 @@ a {
 
 .upper-info-row {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .userinfo img {

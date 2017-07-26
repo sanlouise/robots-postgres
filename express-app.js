@@ -18,10 +18,12 @@ app.get('/', (request, response) => {
 
 app.get('/info/:username', (request, response) => {
   const username = request.params.username;
+  console.log({username});
   let user;
   for (let i = 0; i < users.length; i++) {
     if (users[i].username === username) {
       user = users[i];
+      console.log({user});
       break;
     }
   }

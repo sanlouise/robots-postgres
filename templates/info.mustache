@@ -15,8 +15,11 @@
         <div class="upper-info">
           <h1>{{username}}</h1>
           <div class="upper-info-row">
-            <p>{{city}}</p> |
-            <p>{{country}}</p> |
+
+            {{#address.city}}
+              <p>{{address.city}}</p>
+            {{/address.city}}
+            <p>{{address.country}}</p> |
 
             {{#job}}
               <p class="grey">{{job}}</p>
@@ -35,10 +38,14 @@
 
       <div class="bottom">
         <table>
-          <tr>
-            <td class="bold">Education</td>
-            <td>{{university}}</td>
-          </tr>
+
+          {{#university}}
+            <tr>
+              <td class="bold">Education</td>
+              <td>{{university}}</td>
+            </tr>
+          {{/university}}
+
           <tr>
             <td class="bold">Skills</td>
             <td>
