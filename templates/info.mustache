@@ -18,7 +18,14 @@
             <p>{{city}}</p> |
             <p>{{country}}</p> |
 
-            <p>{{job}}</p> |
+            {{#job}}
+              <p class="grey">{{job}}</p>
+            {{/job}}
+
+            {{^job}}
+              <p class="red">Available for hire</p>
+            {{/job}}
+
             <p>{{email}}</p> |
             <p>{{phone}}</p>
           </div>
