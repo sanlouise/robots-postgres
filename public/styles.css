@@ -26,10 +26,6 @@ a {
   font-size: 25px;
 }
 
-.user p {
-  color: darkgrey;
-}
-
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -39,6 +35,14 @@ a {
 .upper {
   display: flex;
   flex-direction: row;
+}
+
+.red {
+  color: red;
+}
+
+.grey {
+  color: darkgrey;
 }
 
 .upper-info {
