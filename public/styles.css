@@ -1,3 +1,5 @@
+/*GENERAL STYLES*/
+
 body {
   display: flex;
   align-items: center;
@@ -10,6 +12,16 @@ body {
 a {
   text-decoration: none;
 }
+
+.red {
+  color: red;
+}
+
+.grey {
+  color: darkgrey;
+}
+
+/*INDEX PAGE*/
 
 .user {
   display: flex;
@@ -27,41 +39,14 @@ a {
   margin-bottom: 0;
 }
 
+/*USER SHOW PAGE*/
+
 .userinfo {
   display: flex;
   flex-direction: column;
-  width: 50em;
-}
-
-.upper {
-  display: flex;
-  flex-direction: row;
-}
-
-.red {
-  color: red;
-}
-
-.grey {
-  color: darkgrey;
-}
-
-.upper-info {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  margin-left: 100px;
-}
-
-.upper-info h1 {
-  font-size: 60px;
-  font-weight: 300;
-}
-
-.upper-info-row {
-  display: flex;
-  flex-direction: column;
+  align-items: center;
+  width: 50em;
 }
 
 .userinfo img {
@@ -69,11 +54,31 @@ a {
   height: 175px;
   width: 175px;
   border: 1px solid grey;
-  margin: 25px;
+  margin: 15px;
+  display: flex;
+  align-self: center;
+}
+
+.upper {
+  display: flex;
+  flex-direction: row;
+}
+
+.upper-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 50px;
+  height: 300px;
+}
+
+.upper-info h1 {
+  font-size: 60px;
+  font-weight: 300;
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: 700;
   text-align: right;
-  margin-right: 80px;
+  padding-right: 30px;
 }

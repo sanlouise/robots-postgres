@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <title>Robot Page</title>
   </head>
   <body>
@@ -13,24 +13,23 @@
 
         <img src="{{avatar}}" />
         <div class="upper-info">
-          <h1>{{username}}</h1>
+          <h1>{{name}}</h1>
           <div class="upper-info-row">
-
             {{#address.city}}
-              <p>{{address.city}}</p>
+              {{address.city}},
             {{/address.city}}
-            <p>{{address.country}}</p> |
+            {{address.country}} |
 
             {{#job}}
-              <p class="grey">{{job}}</p>
+              {{job}}
             {{/job}}
 
             {{^job}}
-              <p class="red">Available for hire</p>
+              <span class="red">Available for hire</span>
             {{/job}}
-
-            <p>{{email}}</p> |
-            <p>{{phone}}</p>
+            <br>
+            {{email}} |
+            {{phone}}
           </div>
         </div>
 
@@ -47,7 +46,7 @@
           {{/university}}
 
           <tr>
-            <td class="bold">Skills</td>
+            <td class="bold" valign="top">Skills</td>
             <td>
               {{#skills}}
                 {{.}}</br>
