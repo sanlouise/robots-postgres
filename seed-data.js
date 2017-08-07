@@ -15,7 +15,7 @@ robotDB.task('seed-table-data', task => {
       company: robot.company,
       phone: robot.phone,
       street_num: robot.address.street_num,
-      street_name: robot.address.stret_name,
+      street_name: robot.address.street_name,
       city: robot.address.city,
       state_or_province: robot.address.state_or_province,
       postal_code: robot.address.postal_code,
@@ -26,7 +26,8 @@ robotDB.task('seed-table-data', task => {
         street_name, city, state_or_province, postal_code, country)
         VALUES($(username), $(name), $(avatar), $(email), $(university), $(job), $(company), $(phone),
         $(street_num), $(street_name), $(city), $(state_or_province), $(postal_code), $(country)) RETURNING id`,
-        newRobot).then(newRobot => {
+        newRobot)
+        .then(newRobot => {
           console.log(newRobot)
         })
     })
