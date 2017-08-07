@@ -3,7 +3,7 @@ const pgPromise = require('pg-promise')();
 const mustacheExpress = require('mustache-express');
 const robots = require('./robots');
 const pg = require('pg');
-const robotDatabase = pgPromise({ database: 'robots' })
+const robotDB = pgPromise({ database: 'robots' })
 
 // CREATE TABLE robots (
 // id serial PRIMARY KEY,
@@ -33,8 +33,17 @@ app.listen(3000, () => {
   console.log('Listening on port 3000')
 })
 
+robotDB.any(`SELECT * from robots`).then(robots => {
+    response.render('index', { robots })
+  })
+})
+
 app.get('/', (request, response) => {
   response.render('index', { robots });
+})
+
+app.get('/create', (request, response) => {
+  response.render('create')
 })
 
 app.get('/info/:username', (request, response) => {
