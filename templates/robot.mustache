@@ -8,9 +8,7 @@
   </head>
   <body>
     <div class="userinfo">
-
       <div class="upper">
-
         <img src="{{avatar}}" />
         <div class="upper-info">
           <h1>{{name}}</h1>
@@ -32,12 +30,10 @@
             {{phone}}
           </div>
         </div>
-
       </div>
 
       <div class="bottom">
         <table>
-
           {{#university}}
             <tr>
               <td class="bold">Education</td>
@@ -45,16 +41,12 @@
             </tr>
           {{/university}}
 
-          <tr>
-            <td class="bold" valign="top">Skills</td>
-            <td>
-              {{#skills}}
-                {{.}}</br>
-              {{/skills}}
-            </td>
-          </tr>
         </table>
       </div>
+
+      <form class="" action="/robot/{{id}}" method="post">
+        <button>Delete This Robot</button>
+      </form>
 
     </div>
   </body>

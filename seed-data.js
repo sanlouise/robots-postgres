@@ -2,31 +2,30 @@ const robotData = require('./robots.js');
 const pgPromise = require('pg-promise')();
 const robotDB = pgPromise({ database: 'robots' });
 
-robotDB.task('drop-table', task => {
-    return task.none(`DROP TABLE robots`)
-  }).then(() => {
-    robotDB.task('create-table', task => {
-      return
-        task.none(`create table robots (
-        ID SERIAL primary key,
-        username varchar(30) NOT NULL,
-        name varchar(40) NOT NULL,
-        avatar varchar(100),
-        email varchar(50),
-        university varchar(50),
-        job varchar(40),
-        company varchar(50),
-        phone varchar(25),
-        street_num varchar(10),
-        street_name varchar(50),
-        city varchar(30),
-        state_or_province varchar(40),
-        postal_code varchar(10),
-        country varchar(50));`)
-   })
+console.log(robotData);
 
-  }).then(() => {
+robotDB.none(`DROP TABLE IF EXISTS robots`)
+  .then(() => (
+    robotDB.none(`CREATE TABLE robots (
+      "id" SERIAL primary key,
+      "username" varchar(30) NOT NULL,
+      "name" varchar(40) NOT NULL,
+      "avatar" varchar(100),
+      "email" varchar(60),
+      "university" varchar(100),
+      "job" varchar(40),
+      "company" varchar(70),
+      "phone" varchar(25),
+      "street_num" varchar(30),
+      "street_name" varchar(60),
+      "city" varchar(30),
+      "state_or_province" varchar(40),
+      "postal_code" varchar(20),
+      "country" varchar(70));`)
+
+  )).then(() => {
     console.log('DB seeded')
+    console.log(robotData[0])
     robotData.forEach(robot => {
       const newRobot = {
         username: robot.username,
@@ -55,8 +54,8 @@ robotDB.task('drop-table', task => {
           })
       })
       console.log('Successfully seeded the db!')
+    .catch(error => {
+      console.log(error)
+    })
 
-  .catch(error => {
-    console.log(error)
-  })
 });

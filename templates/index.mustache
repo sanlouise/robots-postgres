@@ -8,8 +8,15 @@
   </head>
   <body>
 
+    <div class="header">
+      <form class="" action="/search" method="get">
+        <input class="search" type="search" name="name" placeholder="Search...">
+        <button type="submit">GO</button>
+      </form>
+      <a href="/new">Add a new robot</a>
+    </div>
     {{#robots}}
-    <a href="/robot/{{username}}">
+    <a href="/robot/{{id}}">
       <div class="user">
 
         <img src="{{avatar}}" />
