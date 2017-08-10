@@ -9,6 +9,13 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.robots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 a {
   text-decoration: none;
 }

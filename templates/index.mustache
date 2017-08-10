@@ -13,25 +13,28 @@
         <input class="search" type="search" name="name" placeholder="Search...">
         <button type="submit">GO</button>
       </form>
-      <a href="/new">Add a new robot</a>
     </div>
-    {{#robots}}
-    <a href="/robot/{{id}}">
-      <div class="user">
 
-        <img src="{{avatar}}" />
-        <h3>{{name}}</h3>
+    <div class="robots">
+      <a href="/new">Add a new robot</a>
+      {{#robots}}
+      <a href="/robot/{{id}}">
+        <div class="user">
 
-        {{#job}}
-          <p class="grey">{{job}}</p>
-        {{/job}}
+          <img src="{{avatar}}" />
+          <h3>{{name}}</h3>
 
-        {{^job}}
-          <p class="red">Available for hire</p>
-        {{/job}}
-      </div>
-    </a>
-    {{/robots}}
+          {{#job}}
+            <p class="grey">{{job}}</p>
+          {{/job}}
 
+          {{^job}}
+            <p class="red">Available for hire</p>
+          {{/job}}
+        </div>
+      </a>
+      {{/robots}}
+    </div>
+    <script src="/main.js" charset="utf-8"></script>
   </body>
 </html>

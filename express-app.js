@@ -12,6 +12,8 @@ app.engine('mustache', mustacheExpress())
 app.set('views', './templates')
 app.set('view engine', 'mustache')
 
+app.use(bodyParser.urlencoded({ extended: false }))
+
 app.listen(3000, () => {
   console.log('Listening on port 3000')
 })
