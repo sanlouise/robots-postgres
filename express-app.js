@@ -83,14 +83,15 @@ app.get('/robot/:id', (request, response) => {
   })
 })
 
-// app.delete('/robot/:id', (req, res) => {
-//   const id = parseInt(req.params.id);
-//   robotDB.one(`DELETE FROM robots WHERE id = $(id)`, {id: id})
-//   .then() => {
-//     response.redirect("/");
-//   })
-//   .catch(error => {
-//     const displayError = "Oops, we couldn't delete that user!"
-//     response.render("error", { displayError })
-//   })
-// })
+app.post('/delete/:id', (request, response) => {
+  const id = parseInt(request.params.id)
+
+  robotDB.none(`DELETE FROM robots WHERE id = $(id)`, { id: id })
+    .then(() => {
+      response.redirect("/")
+    })
+    .catch(error => {
+      const displayError = "Oops! Something went wrong!"
+      response.render("error", { displayError })
+    })
+})
