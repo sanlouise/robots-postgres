@@ -44,9 +44,21 @@ app.get('/new', (request, response) => {
 })
 
 app.post('/create', (request, response) => {
-  console.log(request.body);
-
   const newRobotData = request.body;
+
+  const { address } = newRobotData;
+  // Set default values of address details to ''.
+  let street_num, street_name, city, state_or_province, postal_code, country = '';
+  // Does the robot have an address?
+  if (address) {
+    // Make sure none of the address details have null or undefined values
+    street_num = address.street_num || '';
+    street_name = address.street_name || '';
+    city = address.city || '';
+    state_or_province = address.state_or_province || '';
+    postal_code = address.postal_code || '';
+    country = address.country || '';
+  }
 
   const newRobot = {
     username: newRobotData.username,
@@ -57,15 +69,15 @@ app.post('/create', (request, response) => {
     job: newRobotData.job,
     company: newRobotData.company,
     phone: newRobotData.phone,
-    street_num: newRobotData.address.street_num,
-    street_name: newRobotData.address.street_name,
-    city: newRobotData.address.city,
-    state_or_province: newRobotData.address.state_or_province,
-    postal_code: newRobotData.address.postal_code,
-    country: newRobotData.address.country
+    street_num,
+    street_name,
+    city,
+    state_or_province,
+    postal_code,
+    country,
   }
 
-  console.log(newRobot);
+  console.log('newRobot', newRobot);
 
   robotDB.one(`INSERT INTO robots (username, name, avatar, email, university, job, company, phone, street_num, street_name, city, state_or_province, postal_code, country) VALUES($(username) $(name), $(avatar), $(email), $(university), $(job), $(company), $(phone), $(street_num) $(street_name), $(city), $(state_or_province), $(postal_code), $(country)) RETURNING id`, newRobot)
 
