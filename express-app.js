@@ -46,20 +46,6 @@ app.get('/new', (request, response) => {
 app.post('/create', (request, response) => {
   const newRobotData = request.body;
 
-  const { address } = newRobotData;
-  // Set default values of address details to ''.
-  let street_num, street_name, city, state_or_province, postal_code, country = '';
-  // Does the robot have an address?
-  if (address) {
-    // Make sure none of the address details have null or undefined values
-    street_num = address.street_num || '';
-    street_name = address.street_name || '';
-    city = address.city || '';
-    state_or_province = address.state_or_province || '';
-    postal_code = address.postal_code || '';
-    country = address.country || '';
-  }
-
   const newRobot = {
     username: newRobotData.username,
     name: newRobotData.name,
@@ -69,17 +55,17 @@ app.post('/create', (request, response) => {
     job: newRobotData.job,
     company: newRobotData.company,
     phone: newRobotData.phone,
-    street_num,
-    street_name,
-    city,
-    state_or_province,
-    postal_code,
-    country,
+    street_num: newRobotData.street_num,
+    street_name: newRobotData.street_name,
+    city: newRobotData.city,
+    state_or_province: newRobotData.state_or_province,
+    postal_code: newRobotData.postal_code,
+    country: newRobotData.country,
   }
 
   console.log('newRobot', newRobot);
 
-  robotDB.one(`INSERT INTO robots (username, name, avatar, email, university, job, company, phone, street_num, street_name, city, state_or_province, postal_code, country) VALUES($(username) $(name), $(avatar), $(email), $(university), $(job), $(company), $(phone), $(street_num) $(street_name), $(city), $(state_or_province), $(postal_code), $(country)) RETURNING id`, newRobot)
+  robotDB.one(`INSERT INTO robots (username, name, avatar, email, university, job, company, phone, street_num, street_name, city, state_or_province, postal_code, country) VALUES($(username), $(name), $(avatar), $(email), $(university), $(job), $(company), $(phone), $(street_num), $(street_name), $(city), $(state_or_province), $(postal_code), $(country)) RETURNING id`, newRobot)
 
   response.redirect('/');
 })
